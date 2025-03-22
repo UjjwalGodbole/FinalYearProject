@@ -1,0 +1,120 @@
+body{
+    font-family: "Roboto", serif;
+    margin: 0;
+    padding: 0;
+    background-color: greenyellow;
+}
+.container {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.seller-info {
+    margin-bottom: 30px;
+    padding: 15px;
+    padding-right: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.seller-info input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.seller-info label {
+    font-weight: bold;
+}
+.upload-container {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+}
+.upload-container h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+}
+.upload-container.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.result {
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 4px;
+    display: none;
+    font-size: 0.9rem;
+}
+.rejected {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+.button-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.button-container input[type="file"] {
+    width: 200px;
+    font-size: 0.9rem;
+}
+.button-container button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+}
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 8px;
+}
+.status-pending {
+    background-color: #ffd700;
+}
+.status-complete {
+    background-color: #28a745;
+}
+.submit-container {
+    margin-top: 20px;
+    text-align: center;
+}
+.submit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.submit-button:hover {
+    background-color: #0056b3;
+}
+.submit-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+button{
+    background-color: #1db954;
+    color: white;
+    border: 1px solid #1db954;
+    margin: auto 220px;
+   
+}
+input::file-selector-button{
+    background-color:  #007BFF ;
+    border: 1px solid #1E90FF;
+    color: white;
+    margin: 15px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 2px;
+    width: 80px;
+    height: 25px;
+}

@@ -1,0 +1,44 @@
+.helpbody{
+    height: 100vh;
+    max-width: 100%;
+    margin: 140px 100px 100px 100px;
+}
+h1
+{
+    font-weight: 400;
+}
+.downcomponent{
+    display: flex;
+    height: 100px;
+    width: 250px;
+    border: 1px solid rgb(219, 219, 219);
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.downcomponent i{
+    font-size: 30px;
+}
+.helpleft{
+    height: 70vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.helpleftup{
+    font-size: 17px;
+    word-spacing: 5px;
+    text-align: justify;
+}
+.helpsubheading{
+    font-weight: 400;
+    color:rgb(150, 150, 150);
+}
+.heplheading{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(52, 52, 52);;
+}

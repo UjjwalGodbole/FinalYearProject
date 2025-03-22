@@ -1,0 +1,81 @@
+
+.noscroll {
+    overflow: hidden;
+}
+.loginpage{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0,.8);
+    z-index: 5;
+    position: fixed;
+    top :0;
+    left:0;
+    margin: 0;
+    padding: 0;
+    display:none; 
+    justify-content: center;
+    align-items: center;
+}
+.logincontent{
+
+    height: 410px;
+    width:520px;
+    background-color: #fdfffc;
+    border-radius: 5px;
+    display: flex;
+}
+.logincontent img{
+    border-radius: 5px 0px 0px 5px;
+}
+#loginclose{
+    height: 40px;
+    width: 40px;
+   align-self: flex-start;
+   margin-left: 5px;
+   color: rgb(236, 234, 234);
+   font-size: 25px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 160px;
+}
+#loginclose:hover{
+    background-color: #FF3B30;
+}
+
+.logininfo{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 50px;
+}
+.logininfoheading{
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+}
+hr{
+    background-color: rgb(204, 204, 204); /* Sets the background color */
+    height: 1px; /* Adjusts thickness */
+    border: none; /* Removes default border */
+}
+input{
+    height: 30px;
+    width: 300px;
+    border-radius: 7px;
+    border: 1px solid rgb(161, 161, 161);
+    font-size: 18px;
+    padding: 0 10px;
+    opacity: .5;
+}
+.form button{
+    height: 40pX;
+    width: 300pX;
+    text-decoration: none;
+    font-size: 8px;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    background-color: #25a541;
+}
+

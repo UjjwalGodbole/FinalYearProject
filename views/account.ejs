@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart page</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/account.css">
+    <link rel="stylesheet" href="/css/show.css">
+    <%- include("includes/header.ejs") %>
+</head>
+<body>
+    <%- include("includes/nav.ejs") %>
+    <div class="accountbody">
+        <h1 >Your Account</h1>
+        <div class="Acomponets">
+            <div class="component">
+                <i style="color: red;" class="fa-solid fa-heart"></i>
+                <h3>View your liked books</h3>
+            </div>
+            <div class="component">
+                <i style="color: #1db954;" class="fa-solid fa-book"></i>
+                <h3>Edit your uploaded books</h3>
+            </div>
+            <div class="component">
+                <i style="color: #FFA41C;" class="fa-solid fa-location-dot"></i>
+                <h3>Edit your address for orders</h3>
+            </div>
+            <div class="component">
+                <i style="color:#3c3c3c" class="fa-solid fa-lock"></i>
+                <h3>Edit your login information</h3>
+            </div>
+            <a href="/posts/helpcenter">
+                <div class="component">
+                    <i class="fa-solid fa-headphones"></i>
+                    <h3>Contact our service</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <%- include("includes/footer.ejs") %>
+</body>
+</html>

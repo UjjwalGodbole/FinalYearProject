@@ -1,0 +1,89 @@
+.scontent{
+    margin-top: 150px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 200px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.scontent input{
+    border: 1px solid black;
+}
+.large{
+    margin-bottom: 20px;
+    width: 400px;
+    height: 50px;
+}
+.sub{
+    height: 50px;
+    width: 190px;
+    margin-bottom: 20px;
+}
+.simages{
+    height: 300px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+.simages .main{
+    height: 50px;
+    width: 400px;
+    border: 1px solid black;
+}
+input.main::file-selector-button{
+    background-color:  #007BFF ;
+    border: 1px solid #1E90FF;
+    color: white;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px;
+}
+.subimg {
+    display: flex;
+    flex-wrap: wrap; 
+    height: 150px;
+    width: 430px;
+    justify-content: space-around;
+}
+
+.subimg input {
+    height: 50px;
+    width: 48%;  
+    box-sizing: border-box;  
+    border: 1px solid black;
+}
+.subimg input::file-selector-button{
+    background-color:  #007BFF ;
+    border: 1px solid #1E90FF;
+    color: white;
+    margin: 15px 5px;
+    border-radius: 3px;
+    font-size: 8px;
+    padding: 3px;
+    width: 50px;
+    height: 20px;
+}
+button {
+    height: 50px;
+    width: 420px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -50px auto;
+    border-radius: 10px;
+    font-size: 27px;
+    background: #1ED760;
+    border: 1px solid #1ED760;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+}
+
+button:hover {
+    transform: scale(1.03);
+}

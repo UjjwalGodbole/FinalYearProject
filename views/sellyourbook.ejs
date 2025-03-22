@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell your book</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/sellyourbook.css">
+    <%- include("includes/header.ejs") %>
+</head>
+<body>
+    <%- include("includes/nav.ejs") %>
+    <%- include("includes/login.ejs") %>
+    
+    <div class="scontent">
+        
+        <form style="text-align: center;" action="/home" method="post" enctype="multipart/form-data">
+            <input class="large" type="text" name="seller" placeholder="Seller Name"><br>
+
+            <input class="large"  type="text" id="bname" name="book" placeholder="Book Name"><br>
+
+            <input class="sub" type="text" name="city" placeholder="City Name">
+            <input class="sub" type="text" name="price" placeholder="Book Price"><br>
+        <div class="simages">
+            <input  class="main" type="file" name="mainimg"><br>
+            <div class="subimg">
+            <input  type="file" name="img1"><br>
+            <input  type="file" name="img2"><br>
+            <input  type="file" name="img3"><br>
+            <input  type="file" name="img4">
+            </div>
+        </div>
+            <button>Submit</button>
+          </form>
+    </div>
+    <%- include("includes/footer.ejs") %>
+</body>
+</html>

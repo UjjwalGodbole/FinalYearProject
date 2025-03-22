@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.book %></title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/show.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <%- include("includes/header.ejs") %>
+</head>
+<body>
+    <%- include("includes/nav.ejs") %>
+    <div class="body">
+        <%- include("includes/login.ejs") %>
+        <div class="scrolling-container">
+            <div class="scrolling-text">
+                Get books at 50% off! Hurry, limited time offer! Find the best second-hand books in great condition.Huge discounts available on all categories: fiction, non-fiction, educational, and more! Don't miss out on this amazing deal.
+            </div>
+        </div>
+        <div  class="content">
+            <div class="image">
+                <div class="mainimg"><img src="<%= post.images[0] %>" alt=""></div>
+                <div class="images">
+                    <% for (let i = 1; i < post.images.length; i++) { %>
+                        <img src="<%= post.images[i] %>" alt="Book Image">
+                      <% } %>
+                      
+                </div>
+            </div>
+            <div class="main">
+            <div class="info7">
+                <div class="user">
+                    <div class="book"><%= post.book %></div>
+                    <div class="city"><span>City:&nbsp;</span><%= post.city %></div>
+                    <hr>
+                    <div class="seller"><span>Hosted by&nbsp;</span><%= post.seller %></div>
+                </div>
+                <div class="review">
+                    <div class="book" style="font-size: 25px;">Meet host</div>
+                    <div style="margin: 10px 0px;font-size: large;font-weight: 400;">Host details</div>
+                    <div style="font-weight:300;">Response rate: 100%</div>
+                    <div style="margin-bottom: 20px;font-weight:300;">Responds within an hour</div>
+                   <button style="background-color: #1db954;border:1px solid #1db954">Message Host</button>
+                </div>
+            </div>
+            <div class="control">
+                <div class="price">&#8377;<%= post.price %></div>
+                <div class="seller">Seller:&nbsp;<%= post.seller %></div><br>
+                <hr>
+                <div class="icons">
+                    <a href="#"><i class="fas fa-check-circle" style="color: #1db954;"></i></a>
+                    <a href="#"><i class="fa-regular fa-heart"></i></a>
+                    <a href="#"><i class="fa-solid fa-share"></i></a>
+                </div>
+                <div class="buttons">
+                    <!-- <button>Buy Now</button> -->
+                    <button>Add to cart</button>
+                </div>
+                <p style="text-align: center;font-weight: 300;">Add now, decide later!</p>
+            </div>
+        </div>
+        </div>
+        <div class="recomendation">
+            <h1 style="margin-left: 100px;"><i class="fa-solid fa-thumbs-up"></i><i id="thumb" class="fa-solid fa-thumbs-up"></i>&nbsp;<span style="opacity: .8;">We Think You'll Love These</span></h1>
+            <div class="posts" style="padding: 0px 80px;">
+                <% for(let post of posts.slice(0,4)){ %>
+                    <a href="/home/<%= post.id %>">
+                    <div class="card">
+                        <div class="img"><img src="<%= post.images[0] %>" alt="img"></div>
+                       <div style="font-size: 16px;opacity: .8;" class="book"><span>Book:</span>&nbsp;<%= post.book %></div>
+                       <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller %></div>
+                       <div class="city"><span>City:</span>&nbsp;<%= post.city %></div>
+                       <div style="font-size: 15px;opacity: .8;" class="price">&#8377;<%= post.price %></div>
+                    </div>
+                </a>
+                <% } %>
+                </div>
+        </div>
+    </div>
+    <%- include("includes/footer.ejs") %>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Book Images</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+        body{
+            font-family: "Roboto", serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .seller-info {
+            margin-bottom: 30px;
+            padding: 15px;
+            padding-right: 30px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .seller-info input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .seller-info label {
+            font-weight: bold;
+        }
+        .upload-container {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 500px;
+        }
+        .upload-container h3 {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .upload-container.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .result {
+            margin-top: 5px;
+            padding: 8px;
+            border-radius: 4px;
+            display: none;
+            font-size: 0.9rem;
+        }
+        .rejected {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        .button-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .button-container input[type="file"] {
+            width: 200px;
+            font-size: 0.9rem;
+        }
+        .button-container button {
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 8px;
+        }
+        .status-pending {
+            background-color: #ffd700;
+        }
+        .status-complete {
+            background-color: #28a745;
+        }
+        .submit-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .submit-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+        .submit-button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        button{
+            background-color: #1db954;
+            color: white;
+            border: 1px solid #1db954;
+            margin: auto 220px;
+           
+        }
+        input::file-selector-button{
+            background-color:  #007BFF ;
+            border: 1px solid #1E90FF;
+            color: white;
+            margin: 15px 5px;
+            border-radius: 3px;
+            font-size: 12px;
+            padding: 2px;
+            width: 80px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-top: 50px;">
+        <a href="http://localhost:8080/home" style="margin-left: 400px; "><i style="font-size: 25px;color: #000;" class="fa-solid fa-arrow-left"></i></a>
+    </div>
+    <div class="container">
+        <h1> <span style="color: #1db954;margin-right: 10px ;"><i class="fa-solid fa-book"></i></span>Sell Your <span style="color: #1db954;" >Book</span></h1>
+        
+        <!-- Seller Information -->
+        <div class="seller-info">
+            <div>
+                <label name="sellername" style="opacity: .7;" for="seller-name">Seller's NameS</label>
+                <input type="text" id="seller-name" required>
+            </div>
+            <div>
+                <label name="city" style="opacity: .7;" for="seller-city">Seller's City:</label>
+                <input type="text" id="seller-city" required>
+            </div>
+            <div>
+                <label name="bookname" style="opacity: .7;" for="book-name">Book Name:</label>
+                <input type="text" id="book-name" required>
+            </div>
+        </div>
+        
+        <!-- Upload containers for 5 images -->
+        <div id="upload-1" class="upload-container">
+            <h3>Image 1</h3>
+            <div class="button-container">
+                <input type="file" name="file1" accept="image/*" required>
+                <button type="button" onclick="handleImageUpload(0)">Upload</button>
+                <span class="status-indicator"></span>
+            </div>
+            <div class="result"></div>
+        </div>
+
+        <div id="upload-2" class="upload-container disabled">
+            <h3>Image 2</h3>
+            <div class="button-container">
+                <input type="file" name="file2" accept="image/*" required>
+                <button type="button" onclick="handleImageUpload(1)">Upload</button>
+                <span class="status-indicator"></span>
+            </div>
+            <div class="result"></div>
+        </div>
+
+        <div id="upload-3" class="upload-container disabled">
+            <h3>Image 3</h3>
+            <div class="button-container">
+                <input type="file" name="file3" accept="image/*" required>
+                <button type="button" onclick="handleImageUpload(2)">Upload</button>
+                <span class="status-indicator"></span>
+            </div>
+            <div class="result"></div>
+        </div>
+
+        <div id="upload-4" class="upload-container disabled">
+            <h3>Image 4</h3>
+            <div class="button-container">
+                <input type="file" name="file4" accept="image/*" required>
+                <button type="button" onclick="handleImageUpload(3)">Upload</button>
+                <span class="status-indicator"></span>
+            </div>
+            <div class="result"></div>
+        </div>
+
+        <div id="upload-5" class="upload-container disabled">
+            <h3>Image 5</h3>
+            <div class="button-container">
+                <input type="file" name="file" accept="image/*" required>
+                <button type="button" onclick="handleImageUpload(4)">Upload</button>
+                <span class="status-indicator"></span>
+            </div>
+            <div class="result"></div>
+        </div>
+
+        <div class="submit-container">
+            <button style="margin-top: 20px;margin-bottom: 70px;" type="button" id="final-submit" class="submit-button" onclick="handleFinalSubmit()" disabled>
+                Submit
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let completedUploads = 0;
+        const totalRequiredUploads = 5;
+        
+        async function handleImageUpload(index) {
+            // Get seller info
+            const sellerName = document.getElementById('seller-name').value;
+            const sellerCity = document.getElementById('seller-city').value;
+            const bookName = document.getElementById('book-name').value;
+
+            // Validate seller info
+            if (!sellerName || !sellerCity || !bookName) {
+                alert('Please fill in all seller and book information first');
+                return;
+            }
+            
+            const container = document.querySelector(`#upload-${index + 1}`);
+            const fileInput = container.querySelector('input[type="file"]');
+            const resultDiv = container.querySelector('.result');
+            const statusIndicator = container.querySelector('.status-indicator');
+            
+            if (!fileInput.files[0]) {
+                alert('Please select a file first');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('seller_name', sellerName);
+            formData.append('seller_city', sellerCity);
+            formData.append('book_name', bookName);
+            
+            // Show pending status
+            statusIndicator.className = 'status-indicator status-pending';
+            
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    if (data.decision === 'Accepted') {
+                        resultDiv.style.display = 'none';
+                        resultDiv.innerHTML = '';
+                        statusIndicator.className = 'status-indicator status-complete';
+                        
+                        completedUploads++;
+                        
+                        // Enable next container if available
+                        if (index < 4) {
+                            const nextContainer = document.querySelector(`#upload-${index + 2}`);
+                            if (nextContainer) {
+                                nextContainer.classList.remove('disabled');
+                            }
+                        }
+                        
+                        // Enable submit button if all uploads are complete
+                        document.getElementById('final-submit').disabled = completedUploads < totalRequiredUploads;
+                        
+                    } else {
+                        statusIndicator.className = 'status-indicator';
+                        resultDiv.style.display = 'block';
+                        resultDiv.innerHTML = `
+                            <div class="rejected">
+                                <p>Image rejected. Please try uploading a different image.</p>
+                            </div>
+                        `;
+                    }
+                } else {
+                    resultDiv.style.display = 'block';
+                    resultDiv.innerHTML = `<div class="rejected">Error: ${data.error}</div>`;
+                    statusIndicator.className = 'status-indicator';
+                }
+            } catch (error) {
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = '<div class="rejected">Error uploading image</div>';
+                statusIndicator.className = 'status-indicator';
+            }
+        }
+
+        async function handleFinalSubmit() {
+            const formData = new FormData();
+            formData.append('seller_name', document.getElementById('seller-name').value);
+            formData.append('seller_city', document.getElementById('seller-city').value);
+            formData.append('book_name', document.getElementById('book-name').value);
+            
+            try {
+                const response = await fetch('/submit_info', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('All information submitted successfully!');
+                    window.location.href = 'http://localhost:8080/home';
+                } else {
+                    alert(`Error: ${data.error}`);
+                }
+                
+            } catch (error) {
+                alert('Error submitting information');
+            }
+        }
+    </script>
+</body>
+<footer style="height: 100px;background-color: #F7F7F7;">
+
+</footer>
+</html>

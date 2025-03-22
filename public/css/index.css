@@ -1,0 +1,175 @@
+/* main section */
+
+.posts{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 100px 100px 50px 100px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+.card{
+    height:370px ;
+    width: 250px;
+    margin:20px;
+    /* border: 1px solid black; */
+    font-family: "Roboto";
+    
+}
+.card img{
+    height: 280px;
+    width:240px ;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.seller,.city{
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Roboto";
+    color: #626262;
+}
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.body button{
+   text-decoration: none;
+   font-size: 20px;
+   padding: 10px 15px;
+   border-radius: 7px;
+   background-color: #222222;
+   color:white;
+   cursor: pointer;
+}
+.body1{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    margin-bottom: 100px;
+}
+.body1 .img{
+    height: 90vh;
+    width: 100%;
+    margin: 0px 100px;
+    box-sizing: border-box;
+    background-image: url("https://www.esquireme.com/cloud/2021/09/09/es-031218-best-nonfiction-books-1520867791.jpg");
+}
+.cover{
+    height: 90vh;
+    width: 100%;
+    background: linear-gradient(to right,rgba(0,0,0,1),rgba(0,0,0,0));
+    color: white;
+}
+.b2_content{
+   margin: 50px 0px;
+}
+.b2_content h1{
+    margin-left: 100px;
+}
+
+/* home */
+.home{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+}
+@keyframes trustGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.homeleft {
+    height: 85vh;
+    width: 68%;
+    background: linear-gradient(120deg, #F0F8FF, #E0F7FA, #DFFFD6, #FFFACD);
+    background-size: 400% 400%;
+    animation: trustGradient 6s ease-in-out infinite;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #333;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+}
+
+
+.homeleftimg{
+    align-self:self-end;
+    margin-left: -50px;
+    margin-bottom: -6px;
+}
+.homelefttext{
+    height: 100%;
+    width: 62%;
+    font-size: 42px;
+    /* font-family: "Merienda", cursive; */
+    animation: dropDown 1.5s ease-out;
+    color: black;
+    margin-left: 0px;
+}
+
+.homelefttext h1{
+    margin: 10px;
+    font-weight:900;
+    
+
+
+}
+@keyframes dropDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.homeright{
+    height: 85vh;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.homerightup {
+    margin-left: -100px;
+}
+.homerightup .button {
+    height: 65px;
+    width: 250px;
+    background: linear-gradient(120deg, #F0F8FF, #E0F7FA, #DFFFD6, #FFFACD);
+    background-size: 400% 400%;
+    animation: trustGradient 6s ease-in-out infinite;
+    color: black;
+    border: 1px solid rgb(215, 215, 215); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.homerightup .button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.homerightup h1{
+    margin-top: 0 ;
+    font-size: 35px;
+    /* font-family: "Merienda", cursive; */
+    font-weight: 600;
+}
+.homerightup p{
+    margin-bottom: 0;
+}
+.homerightdown{
+   margin-left: -200px;
+}
+

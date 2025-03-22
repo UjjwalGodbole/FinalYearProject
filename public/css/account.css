@@ -1,0 +1,36 @@
+.accountbody{
+    height: 100vh;
+    max-width: 100%;
+    margin: 120px 100px 100px 100px;
+}
+h1
+{
+    font-weight: 400;
+}
+.Acomponets{
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+.component{
+    height: 150px;
+    width: 340px;
+   border: 1px solid rgb(199, 199, 199);
+   border-radius: 20px;
+   padding: 20px;
+   box-sizing: border-box;
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+   justify-content: space-around;
+}
+.component h3{
+    font-weight: 400;
+}
+.component i{
+    font-size: 40px;
+}
