@@ -70,11 +70,11 @@
     <% for(let post of posts){ %>
         <a href="/home/<%= post.id %>">
         <div class="card">
-            <div class="img"><img src="<%= post.images[0] %>" alt="img"></div>
-           <div class="book"><span>Book:</span>&nbsp;<%= post.book %></div>
-           <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller %></div>
-           <div class="city"><span>City:</span>&nbsp;<%= post.city %></div>
-           <div class="price">&#8377;<%= post.price %></div>
+            <div class="img"><img src="<%= post.image1_path %>" alt="cover image"></div>
+           <div class="book"><span>Book:</span>&nbsp;<%= post.book_name %></div>
+           <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller_name %></div>
+           <div class="city"><span>City:</span>&nbsp;<%= post.seller_city%></div>
+           <div class="price">&#8377;<%= post.book_price %></div>
         </div>
        </a>
     <% } %>
@@ -94,14 +94,14 @@
     <div class="b2_content" id="new">
     <h1>Academic</h1>
     <div class="posts" style="padding: 0px 80px;">
-        <% for(let post of posts.slice(0,4)){ %>
+        <% for(let post of posts.filter(p=>p.book_category === "Academic").slice(0,4)){ %>
             <a href="/home/<%= post.id %>">
             <div class="card">
-                <div class="img"><img src="<%= post.images[0] %>" alt="img"></div>
-               <div class="book"><span>Book:</span>&nbsp;<%= post.book %></div>
-               <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller %></div>
-               <div class="city"><span>City:</span>&nbsp;<%= post.city %></div>
-               <div class="price">&#8377;<%= post.price %></div>
+                <div class="img"><img src="<%= post.image1_path %>" alt="cover image"></div>
+               <div class="book"><span>Book:</span>&nbsp;<%= post.book_name %></div>
+               <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller_name %></div>
+               <div class="city"><span>City:</span>&nbsp;<%= post.seller_city %></div>
+               <div class="price">&#8377;<%= post.book_price %></div>
             </div>
         </a>
         <% } %>
@@ -110,30 +110,31 @@
     <div class="b2_content" id="box">
         <h1>Fiction</h1>
         <div class="posts" style="padding: 0px 80px;">
-            <% for(let post of posts.slice(4,8)){ %>
+            <% for(let post of posts.filter(p => p.book_category === "Fiction").slice(0,4)) { %>
                 <a href="/home/<%= post.id %>">
                 <div class="card">
-                    <div class="img"><img src="<%= post.images[0] %>" alt="img"></div>
-                   <div class="book"><span>Book:</span>&nbsp;<%= post.book %></div>
-                   <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller %></div>
-                   <div class="city"><span>City:</span>&nbsp;<%= post.city %></div>
-                   <div class="price">&#8377;<%= post.price %></div>
+                    <div class="img"><img src="<%= post.image1_path %>" alt="cover image"></div>
+                   <div class="book"><span>Book:</span>&nbsp;<%= post.book_name %></div>
+                   <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller_name %></div>
+                   <div class="city"><span>City:</span>&nbsp;<%= post.seller_city %></div>
+                   <div class="price">&#8377;<%= post.book_price %></div>
                 </div>
             </a>
             <% } %>
-            </div>
         </div>
+    </div>
+    
         <div class="b2_content" id="best">
             <h1>Self-Reading</h1>
             <div class="posts" style="padding: 0px 80px;">
-                <% for(let post of posts.slice(8,12)){ %>
+                <% for(let post of posts.filter(p => p.book_category === "Self-Help").slice(0,4)){ %>
                     <a href="/home/<%= post.id %>">
                     <div class="card">
-                        <div class="img"><img src="<%= post.images[0] %>" alt="img"></div>
-                       <div class="book"><span>Book:</span>&nbsp;<%= post.book %></div>
-                       <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller %></div>
-                       <div class="city"><span>City:</span>&nbsp;<%= post.city %></div>
-                       <div class="price">&#8377;<%= post.price %></div>
+                    <div class="img"><img src="<%= post.image1_path %>" alt="cover image"></div>
+                       <div class="book"><span>Book:</span>&nbsp;<%= post.book_name %></div>
+                       <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller_name %></div>
+                       <div class="city"><span>City:</span>&nbsp;<%= post.seller_city %></div>
+                       <div class="price">&#8377;<%= post.book_price %></div>
                     </div>
                 </a>
                 <% } %>
@@ -143,14 +144,14 @@
                 <h1>Non-Fiction </h1>
                 <div class="posts" style="padding: 0px 80px;">
                  
-                    <% for(let post of posts.slice(0,4)){ %>
+                    <% for(let post of posts.filter(p => p.book_category === "Non-Fiction").slice(0,4)){ %>
                         <a href="/home/<%= post.id %>">
                         <div class="card">
-                            <div class="img"><img src="<%= post.images[0] %>" alt="img"></div>
-                           <div class="book"><span>Book:</span>&nbsp;<%= post.book %></div>
-                           <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller %></div>
-                           <div class="city"><span>City:</span>&nbsp;<%= post.city %></div>
-                           <div class="price">&#8377;<%= post.price %></div>
+                            <div class="img"><img src="<%= post.image1_path %>" alt="cover image"></div>
+                           <div class="book"><span>Book:</span>&nbsp;<%= post.book_price %></div>
+                           <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller_name %></div>
+                           <div class="city"><span>City:</span>&nbsp;<%= post.seller_city %></div>
+                           <div class="price">&#8377;<%= post.book_price %></div>
                         </div>
                     </a>
                     <% } %>

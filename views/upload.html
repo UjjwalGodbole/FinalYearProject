@@ -4,29 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Book Images</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <style>
+    <style>
         body{
-            font-family: "Roboto", serif;
+            background-color: rgb(255, 255, 255);
             margin: 0;
             padding: 0;
         }
         .container {
-            max-width: 520px;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
+            padding-top: 50px;
         }
         .seller-info {
             margin-bottom: 30px;
-            padding: 15px;
-            padding-right: 30px;
+            padding: 40px;
+            padding-right: 60px;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        .seller-info input {
+        .seller-info input, .seller-info select {
             width: 100%;
             padding: 8px;
             margin: 5px 0 10px;
@@ -34,7 +30,7 @@
             border-radius: 4px;
         }
         .seller-info label {
-            font-weight: bold;
+            font-weight: 400;
         }
         .upload-container {
             margin: 10px 0;
@@ -47,6 +43,7 @@
         .upload-container h3 {
             margin: 0 0 10px 0;
             font-size: 1rem;
+            font-weight: 400;
         }
         .upload-container.disabled {
             opacity: 0.5;
@@ -76,6 +73,11 @@
         .button-container button {
             padding: 5px 10px;
             font-size: 0.9rem;
+            color: white;
+            background-color: #1db954;
+            border: 1px solid #1db954;
+            border-radius: 2px;
+
         }
         .status-indicator {
             width: 8px;
@@ -110,119 +112,148 @@
             background-color: #cccccc;
             cursor: not-allowed;
         }
-        button{
-            background-color: #1db954;
-            color: white;
-            border: 1px solid #1db954;
-            margin: auto 220px;
-           
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
         }
-        input::file-selector-button{
-            background-color:  #007BFF ;
-            border: 1px solid #1E90FF;
-            color: white;
-            margin: 15px 5px;
-            border-radius: 3px;
-            font-size: 12px;
-            padding: 2px;
-            width: 80px;
-            height: 25px;
+        .form-col {
+            flex: 1;
         }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div style="margin-top: 50px;">
-        <a href="http://localhost:8080/home" style="margin-left: 400px; "><i style="font-size: 25px;color: #000;" class="fa-solid fa-arrow-left"></i></a>
-    </div>
-    <div class="container">
-        <h1> <span style="color: #1db954;margin-right: 10px ;"><i class="fa-solid fa-book"></i></span>Sell Your <span style="color: #1db954;" >Book</span></h1>
+    <div class="container" style="font-family: 'roboto';">
+        <a style="font-size: 20px;align-self: self-start;color: black;" href="http://localhost:8080/home"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1  style="font-weight:400;align-self: self-start;"><i style="color:#1db954;margin-right: 10px;" class="fa-solid fa-book"></i>Sell Your <span style="color: #1db954;font-weight: 400;font-size: 45px;">B</span>ook</h1>
         
-        <!-- Seller Information -->
-        <div class="seller-info">
-            <div>
-                <label name="sellername" style="opacity: .7;" for="seller-name">Seller's NameS</label>
-                <input type="text" id="seller-name" required>
+        <form style="width: 520px;" id="seller-form" method="POST" action="http://localhost:8080/home">
+            <!-- Seller Information -->
+            <div class="seller-info">
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="seller-name">Seller's Name:</label>
+                        <input type="text" id="seller-name" name="seller_name" required>
+                    </div>&nbsp;
+                    <div class="form-col">
+                        <label for="seller-contact">Contact Number:</label>
+                        <input type="tel" id="seller-contact" name="seller_contact" placeholder="+91">
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="seller-city">Seller's City:</label>
+                    <input type="text" id="seller-city" name="seller_city" required>
+                </div>
+                
+                <div>
+                    <label for="book-name">Book Name:</label>
+                    <input type="text" id="book-name" name="book_name" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="book-category">Book Category:</label>
+                        <select id="book-category"  name="book_category" required>
+                            <option value="fiction">Academic</option>
+                            <option value="non-fiction">Non-Fiction</option>
+                            <option value="textbook">Self-Help</option>
+                            <option value="children">Fiction</option>
+                        </select>
+                    </div>
+                    <div class="form-col">
+                        <label for="book-price">Book Price (&#8377;):</label>
+                        <input type="number" id="book-price" name="book_price" placeholder="&#8377;" required>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label name="city" style="opacity: .7;" for="seller-city">Seller's City:</label>
-                <input type="text" id="seller-city" required>
-            </div>
-            <div>
-                <label name="bookname" style="opacity: .7;" for="book-name">Book Name:</label>
-                <input type="text" id="book-name" required>
-            </div>
-        </div>
-        
-        <!-- Upload containers for 5 images -->
-        <div id="upload-1" class="upload-container">
-            <h3>Image 1</h3>
-            <div class="button-container">
-                <input type="file" name="file1" accept="image/*" required>
-                <button type="button" onclick="handleImageUpload(0)">Upload</button>
-                <span class="status-indicator"></span>
-            </div>
-            <div class="result"></div>
-        </div>
+            
+            <!-- Hidden fields to store image paths -->
+            <input type="hidden" id="image1-path" name="image1_path">
+            <input type="hidden" id="image2-path" name="image2_path">
+            <input type="hidden" id="image3-path" name="image3_path">
+            <input type="hidden" id="image4-path" name="image4_path">
+            <input type="hidden" id="image5-path" name="image5_path">
 
-        <div id="upload-2" class="upload-container disabled">
-            <h3>Image 2</h3>
-            <div class="button-container">
-                <input type="file" name="file2" accept="image/*" required>
-                <button type="button" onclick="handleImageUpload(1)">Upload</button>
-                <span class="status-indicator"></span>
+            <!-- Upload containers for 5 images -->
+            <div id="upload-1" class="upload-container">
+                <h3>Cover Image</h3>
+                <div class="button-container">
+                    <input type="file" accept="image/*" required>
+                    <button type="button" onclick="handleImageUpload(0)">Upload</button>
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="result"></div>
             </div>
-            <div class="result"></div>
-        </div>
 
-        <div id="upload-3" class="upload-container disabled">
-            <h3>Image 3</h3>
-            <div class="button-container">
-                <input type="file" name="file3" accept="image/*" required>
-                <button type="button" onclick="handleImageUpload(2)">Upload</button>
-                <span class="status-indicator"></span>
+            <div id="upload-2" class="upload-container disabled">
+                <h3>Image 1</h3>
+                <div class="button-container">
+                    <input type="file" accept="image/*" required>
+                    <button type="button" onclick="handleImageUpload(1)">Upload</button>
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="result"></div>
             </div>
-            <div class="result"></div>
-        </div>
 
-        <div id="upload-4" class="upload-container disabled">
-            <h3>Image 4</h3>
-            <div class="button-container">
-                <input type="file" name="file4" accept="image/*" required>
-                <button type="button" onclick="handleImageUpload(3)">Upload</button>
-                <span class="status-indicator"></span>
+            <div id="upload-3" class="upload-container disabled">
+                <h3>Image 2</h3>
+                <div class="button-container">
+                    <input type="file" accept="image/*" required>
+                    <button type="button" onclick="handleImageUpload(2)">Upload</button>
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="result"></div>
             </div>
-            <div class="result"></div>
-        </div>
 
-        <div id="upload-5" class="upload-container disabled">
-            <h3>Image 5</h3>
-            <div class="button-container">
-                <input type="file" name="file" accept="image/*" required>
-                <button type="button" onclick="handleImageUpload(4)">Upload</button>
-                <span class="status-indicator"></span>
+            <div id="upload-4" class="upload-container disabled">
+                <h3>Image 3</h3>
+                <div class="button-container">
+                    <input type="file" accept="image/*" required>
+                    <button type="button" onclick="handleImageUpload(3)">Upload</button>
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="result"></div>
             </div>
-            <div class="result"></div>
-        </div>
 
-        <div class="submit-container">
-            <button style="margin-top: 20px;margin-bottom: 70px;" type="button" id="final-submit" class="submit-button" onclick="handleFinalSubmit()" disabled>
-                Submit
-            </button>
-        </div>
+            <div id="upload-5" class="upload-container disabled">
+                <h3>Image 4</h3>
+                <div class="button-container">
+                    <input type="file" accept="image/*" required>
+                    <button type="button" onclick="handleImageUpload(4)">Upload</button>
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="result"></div>
+            </div>
+
+            <div class="submit-container">
+                <button type="button" id="final-submit" class="submit-button" onclick="handleFinalSubmit()" disabled>
+                    Submit All Information
+                </button>
+            </div>
+        </form>
     </div>
 
     <script>
         let completedUploads = 0;
         const totalRequiredUploads = 5;
+        const uploadedImagePaths = [null, null, null, null, null];
         
         async function handleImageUpload(index) {
-            // Get seller info
+            // Get seller info from form
             const sellerName = document.getElementById('seller-name').value;
             const sellerCity = document.getElementById('seller-city').value;
+            const sellerContact = document.getElementById('seller-contact').value;
             const bookName = document.getElementById('book-name').value;
+            const bookCategory = document.getElementById('book-category').value;
+            const bookPrice = document.getElementById('book-price').value;
 
             // Validate seller info
-            if (!sellerName || !sellerCity || !bookName) {
+            if (!sellerName || !sellerCity || !bookName || !sellerContact || !bookCategory || !bookPrice) {
                 alert('Please fill in all seller and book information first');
                 return;
             }
@@ -241,7 +272,11 @@
             formData.append('file', fileInput.files[0]);
             formData.append('seller_name', sellerName);
             formData.append('seller_city', sellerCity);
+            formData.append('seller_contact', sellerContact);
             formData.append('book_name', bookName);
+            formData.append('book_category', bookCategory);
+            formData.append('book_price', bookPrice);
+            formData.append('image_index', index);
             
             // Show pending status
             statusIndicator.className = 'status-indicator status-pending';
@@ -259,6 +294,10 @@
                         resultDiv.style.display = 'none';
                         resultDiv.innerHTML = '';
                         statusIndicator.className = 'status-indicator status-complete';
+                        
+                        // Store the image path in our array and hidden form field
+                        uploadedImagePaths[index] = data.image_path;
+                        document.getElementById(`image${index + 1}-path`).value = data.image_path;
                         
                         completedUploads++;
                         
@@ -294,34 +333,19 @@
             }
         }
 
-        async function handleFinalSubmit() {
-            const formData = new FormData();
-            formData.append('seller_name', document.getElementById('seller-name').value);
-            formData.append('seller_city', document.getElementById('seller-city').value);
-            formData.append('book_name', document.getElementById('book-name').value);
-            
-            try {
-                const response = await fetch('/submit_info', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    alert('All information submitted successfully!');
-                    window.location.href = 'http://localhost:8080/home';
-                } else {
-                    alert(`Error: ${data.error}`);
-                }
-                
-            } catch (error) {
-                alert('Error submitting information');
+        function handleFinalSubmit() {
+            // Check if all images have been uploaded
+            if (completedUploads < totalRequiredUploads) {
+                alert('Please upload all 5 images before submitting');
+                return;
             }
+            
+            // Submit the form
+            document.getElementById('seller-form').submit();
         }
     </script>
-</body>
-<footer style="height: 100px;background-color: #F7F7F7;">
+    <footer style="height: 100px;width: 100%;background-color: #f3f3f3;margin-top: 100px;">
 
-</footer>
+    </footer>
+</body>
 </html>
