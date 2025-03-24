@@ -54,7 +54,7 @@
             <div class="homerightup">
                 <p>Discover Books You’ll Love</p>
                 <h1><span style="font-size: 40px;font-family:Georgia">B</span>ook <span style="font-size: 40px;font-family:Georgia">T</span>reasures</h1>
-                <div class="button">Shop Now</div>
+                <a href="/home/allbooks"><div class="button">Shop Now</div></a>
               </div>
             <div class="homerightdown">
                 <div class="howerightdwontext">
@@ -67,7 +67,7 @@
         </div>
     </div>
     <div class="posts">
-    <% for(let post of posts){ %>
+    <% for(let post of posts.slice(0,12)){ %>
         <a href="/home/<%= post.id %>">
         <div class="card">
             <div class="img"><img src="<%= post.image1_path %>" alt="cover image"></div>
@@ -79,7 +79,9 @@
        </a>
     <% } %>
     </div>
-    <button>show more</button>
+    <form action="/home/allbooks">
+        <button>show more</button>
+    </form>
 </div>
 <div class="body1">
    <div class="img">
@@ -106,6 +108,7 @@
         </a>
         <% } %>
         </div>
+        <a id="hover" style="float :right;margin-right: 180px;color: #2162a1;" href="/home/academic">See more</a>
     </div>
     <div class="b2_content" id="box">
         <h1>Fiction</h1>
@@ -122,6 +125,7 @@
             </a>
             <% } %>
         </div>
+        <a id="hover" style="float :right;margin-right: 180px;color: #2162a1;" href="/home/fiction">See more</a>
     </div>
     
         <div class="b2_content" id="best">
@@ -139,6 +143,7 @@
                 </a>
                 <% } %>
                 </div>
+                <a id="hover" style="float :right;margin-right: 180px;color: #2162a1;" href="/home/selfhelp">See more</a>
             </div>
             <div class="b2_content" style="margin-bottom: 150px;" id="fiction">
                 <h1>Non-Fiction </h1>
@@ -157,6 +162,7 @@
                     <% } %>
               
                     </div>
+                    <a id="hover" style="float :right;margin-right: 180px;color: #2162a1;" href="/home/nonfiction">See more</a>
                 </div>
 </div>
 <%- include("includes/footer.ejs") %>

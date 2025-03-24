@@ -26,6 +26,32 @@ async function main() {
 app.get("/",(req,res)=>{
     res.send(`<b>serach:</b><h1>/home</h1>`)
 })
+//Academic page
+app.get("/home/academic",async(req,res)=>{
+    const posts = await Listing.find()
+    res.render("academic.ejs",{posts})
+})
+// fiction route
+app.get("/home/fiction",async(req,res)=>{
+    const posts =  await Listing.find()
+    res.render("fiction.ejs",{posts})
+})
+// self-help route
+app.get("/home/selfhelp",async(req,res)=>{
+    const posts =  await Listing.find()
+    res.render("selfhelp.ejs",{posts})
+})
+// nonfiction route
+app.get("/home/nonfiction",async(req,res)=>{
+    const posts =  await Listing.find()
+    res.render("nonfiction.ejs",{posts})
+})
+//all books route
+app.get("/home/allbooks",async(req,res)=>{
+    const posts = await Listing.find()
+    res.render("allbooks.ejs",{posts})
+})
+
 //home route
 app.get("/home",async(req,res)=>{
     const posts = await Listing.find()
@@ -60,7 +86,6 @@ app.post("/home", async(req, res) => {
     const cleanImage4Path = cleanPath(image4_path);
     const cleanImage5Path = cleanPath(image5_path);
     const newPost = {
-        id,
         seller_name,
         seller_contact,
         seller_city,
@@ -73,6 +98,7 @@ app.post("/home", async(req, res) => {
         image4_path: cleanImage4Path,
         image5_path: cleanImage5Path,
     };
+    console.log(book_category)
     const post = await Listing(newPost)
     await post.save()
     res.redirect("/home");

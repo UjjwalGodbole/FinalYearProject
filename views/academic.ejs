@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/show.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <%- include("includes/header.ejs") %>
+</head>
+<body>
+    <%- include("includes/nav.ejs") %>
+    <div class="body">
+        <%- include("includes/login.ejs") %>
+        <div class="scrolling-container">
+            <div class="scrolling-text">
+                Get books at 50% off! Hurry, limited time offer! Find the best second-hand books in great condition.Huge discounts available on all categories: fiction, non-fiction, educational, and more! Don't miss out on this amazing deal.
+            </div>
+        </div>
+    </div>
+    <h1 style="font-weight: 400;margin-left: 120px;margin-top: -50px;">Academic Books</h1>
+    <div class="posts" style="padding: 0px 80px;margin-bottom: 200px;">
+        <% for(let post of posts.filter(p=>p.book_category === "Academic")){ %>
+            <a href="/home/<%= post.id %>">
+            <div class="card">
+                <div class="img"><img src="<%= post.image1_path %>" alt="cover image"></div>
+               <div class="book"><span>Book:</span>&nbsp;<%= post.book_name %></div>
+               <div class="seller"><span>Seller:</span>&nbsp;<%= post.seller_name %></div>
+               <div class="city"><span>City:</span>&nbsp;<%= post.seller_city %></div>
+               <div class="price">&#8377;<%= post.book_price %></div>
+            </div>
+        </a>
+        <% } %>
+        </div>
+        <%- include("includes/footer.ejs") %>
+</body>
+</html>

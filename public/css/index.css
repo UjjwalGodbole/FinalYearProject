@@ -66,10 +66,14 @@
 .b2_content{
    margin: 50px 0px;
 }
-.b2_content h1{
-    margin-left: 100px;
-}
 
+.b2_content h1{
+    margin-left: 120px;
+}
+#hover:hover{
+    color: black !important;
+    text-decoration: underline;
+}
 /* home */
 .home{
     height: 80vh;
